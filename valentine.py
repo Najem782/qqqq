@@ -11,6 +11,8 @@ if "no_x" not in st.session_state:
 if "last_x" not in st.session_state:
     st.session_state.last_x = 50
     st.session_state.last_y = 50
+if "choice_made" not in st.session_state:
+    st.session_state.choice_made = False
 
 # Display Yes Button
 yes_clicked = st.button("Yes 💘")
@@ -23,19 +25,19 @@ if yes_clicked:
         col1, col2, col3 = st.columns([3, 3, 3])
         
         with col1:
-            sghiir_clicked = st.button("njibou sghiir")
+            if st.button("njibou sghiir"):
+                st.session_state.choice_made = "ellila tbeet hdheeya bb! 😍"
         with col2:
-            eat_clicked = st.button("i eat you")
+            if st.button("i eat you"):
+                st.session_state.choice_made = "ellila tbeet hdheeya bb! 😋"
         with col3:
-            last_clicked = st.button("nakraw sap", key="last_choice")
+            if st.button("nakraw sap", key="last_choice"):
+                st.session_state.last_x = random.randint(10, 80)
+                st.session_state.last_y = random.randint(10, 80)
+                st.rerun()
     
-    if sghiir_clicked or eat_clicked:
-        st.success("ellila tbeet hdheeya bb! 😍")
-    
-    if last_clicked:
-        st.session_state.last_x = random.randint(10, 80)
-        st.session_state.last_y = random.randint(10, 80)
-        st.rerun()
+    if st.session_state.choice_made:
+        st.success(st.session_state.choice_made)
 
 # Create a placeholder to update "No" button dynamically
 no_placeholder = st.empty()
