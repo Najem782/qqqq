@@ -1,26 +1,37 @@
 import streamlit as st
 import random
 
-st.title("Will you be my Valentine? 💖")
-st.write("I have an important question for you...")
+st.title("I have an important question for you...")
+st.write("Will you be my Valentine? 💖")
+
+# Define CSS to position the "No" button dynamically
+button_style = """
+<style>
+    div[data-testid="stButton"] {
+        position: absolute;
+        left: {}%;
+        top: {}%;
+    }
+</style>
+"""
 
 # Initialize session state for button position if not set
 if "no_x" not in st.session_state:
-    st.session_state.no_x = 0.5
-    st.session_state.no_y = 0.5
+    st.session_state.no_x = 50  # Center horizontally
+    st.session_state.no_y = 50  # Center vertically
 
-col1, col2, col3 = st.columns([3, 1, 3])
+# Display Yes Button
+yes_clicked = st.button("Yes 💘")
+if yes_clicked:
+    st.success("sahiit bb! 😘")
 
-with col1:
-    yes_clicked = st.button("Yes 💘")
-    if yes_clicked:
-        st.success("sahiit bb! 😘")
+# Apply the CSS for dynamic button positioning
+st.markdown(button_style.format(st.session_state.no_x, st.session_state.no_y), unsafe_allow_html=True)
 
-with col3:
-    no_clicked = st.button("No 💔", key="no_button", help="Try clicking me!")
-    
-    if no_clicked:
-        # Move button to a random position
-        st.session_state.no_x = random.uniform(0.2, 0.8)
-        st.session_state.no_y = random.uniform(0.2, 0.8)
-        st.rerun()
+# Display No Button
+no_clicked = st.button("No 💔", key="no_button")
+if no_clicked:
+    # Move "No" button to a new random position
+    st.session_state.no_x = random.randint(10, 80)  # Avoid edges
+    st.session_state.no_y = random.randint(10, 80)
+    st.rerun()
