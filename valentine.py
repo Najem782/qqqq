@@ -23,4 +23,4 @@ with col3:
         # Move button to a random position
         st.session_state.no_x = random.uniform(0.2, 0.8)
         st.session_state.no_y = random.uniform(0.2, 0.8)
-        st.experimental_rerun()
+        st.rerun()
