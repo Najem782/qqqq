@@ -23,13 +23,14 @@ if yes_clicked:
         col1, col2, col3 = st.columns([3, 3, 3])
         
         with col1:
-            if st.button("njibou sghiir"):
-                st.success("ellila tbeet hdheeya bb! 😍")
+            sghiir_clicked = st.button("njibou sghiir")
         with col2:
-            if st.button("i eat you"):
-                st.success("ellila tbeet hdheeya bb! 😋")
+            eat_clicked = st.button("i eat you")
         with col3:
             last_clicked = st.button("nakraw sap", key="last_choice")
+    
+    if sghiir_clicked or eat_clicked:
+        st.success("ellila tbeet hdheeya bb! 😍")
     
     if last_clicked:
         st.session_state.last_x = random.randint(10, 80)
