@@ -8,11 +8,27 @@ st.write("Will you be my Valentine? 💖")
 if "no_x" not in st.session_state:
     st.session_state.no_x = 50  # Initial horizontal position
     st.session_state.no_y = 50  # Initial vertical position
+if "last_x" not in st.session_state:
+    st.session_state.last_x = 50
+    st.session_state.last_y = 50
 
 # Display Yes Button
 yes_clicked = st.button("Yes 💘")
 if yes_clicked:
     st.success("sahiit bb! 😘")
+    st.write("chneya theb naamlou nhaar el valentine")
+    
+    last_placeholder = st.empty()
+    with last_placeholder.container():
+        col1, col2, col3 = st.columns([st.session_state.last_x, 1, 100 - st.session_state.last_x])
+        
+        with col2:
+            choice = st.radio("Choose one:", ["njibou sghiir", "i eat you", "nakraw sap"], key="valentine_choice")
+    
+    if choice == "nakraw sap":
+        st.session_state.last_x = random.randint(10, 80)
+        st.session_state.last_y = random.randint(10, 80)
+        st.rerun()
 
 # Create a placeholder to update "No" button dynamically
 no_placeholder = st.empty()
