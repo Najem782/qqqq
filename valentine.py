@@ -24,10 +24,10 @@ if yes_clicked:
         
         with col1:
             if st.button("njibou sghiir"):
-                st.success("Great choice! 😍")
+                st.success("ellila tbeet hdheeya bb! 😍")
         with col2:
             if st.button("i eat you"):
-                st.success("Yummy! 😋")
+                st.success("ellila tbeet hdheeya bb! 😋")
         with col3:
             last_clicked = st.button("nakraw sap", key="last_choice")
     
