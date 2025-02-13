@@ -20,12 +20,18 @@ if yes_clicked:
     
     last_placeholder = st.empty()
     with last_placeholder.container():
-        col1, col2, col3 = st.columns([st.session_state.last_x, 1, 100 - st.session_state.last_x])
+        col1, col2, col3 = st.columns([3, 3, 3])
         
+        with col1:
+            if st.button("njibou sghiir"):
+                st.success("Great choice! 😍")
         with col2:
-            choice = st.radio("Choose one:", ["njibou sghiir", "i eat you", "nakraw sap"], key="valentine_choice")
+            if st.button("i eat you"):
+                st.success("Yummy! 😋")
+        with col3:
+            last_clicked = st.button("nakraw sap", key="last_choice")
     
-    if choice == "nakraw sap":
+    if last_clicked:
         st.session_state.last_x = random.randint(10, 80)
         st.session_state.last_y = random.randint(10, 80)
         st.rerun()
