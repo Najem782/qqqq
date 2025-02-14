@@ -30,7 +30,7 @@ if yes_clicked:
                 st.rerun()
         with col2:
             if st.button("i eat you", key="choice2"):
-                st.session_state.choice_made = "ellila tbeet hdheeya bb! 😋"
+                st.session_state.choice_made = "ellila tbeet hdheeya bb! 😍"
                 st.rerun()
         with col3:
             if st.button("nakraw sap", key="last_choice"):
@@ -39,7 +39,7 @@ if yes_clicked:
                 st.rerun()
     
 if st.session_state.choice_made:
-    st.success(st.session_state.choice_made)
+    st.success("ellila tbeet hdheeya bb! 😍")
 
 # Create a placeholder to update "No" button dynamically
 no_placeholder = st.empty()
