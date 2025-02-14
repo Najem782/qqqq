@@ -12,7 +12,7 @@ if "last_x" not in st.session_state:
     st.session_state.last_x = 50
     st.session_state.last_y = 50
 if "choice_made" not in st.session_state:
-    st.session_state.choice_made = False
+    st.session_state.choice_made = ""
 
 # Display Yes Button
 yes_clicked = st.button("Yes 💘")
@@ -38,6 +38,7 @@ if yes_clicked:
     
     if st.session_state.choice_made:
         st.success(st.session_state.choice_made)
+        st.session_state.choice_made = ""
 
 # Create a placeholder to update "No" button dynamically
 no_placeholder = st.empty()
