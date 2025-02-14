@@ -25,20 +25,21 @@ if yes_clicked:
         col1, col2, col3 = st.columns([3, 3, 3])
         
         with col1:
-            if st.button("njibou sghiir"):
+            if st.button("njibou sghiir", key="choice1"):
                 st.session_state.choice_made = "ellila tbeet hdheeya bb! 😍"
+                st.rerun()
         with col2:
-            if st.button("i eat you"):
+            if st.button("i eat you", key="choice2"):
                 st.session_state.choice_made = "ellila tbeet hdheeya bb! 😋"
+                st.rerun()
         with col3:
             if st.button("nakraw sap", key="last_choice"):
                 st.session_state.last_x = random.randint(10, 80)
                 st.session_state.last_y = random.randint(10, 80)
                 st.rerun()
     
-    if st.session_state.choice_made:
-        st.success(st.session_state.choice_made)
-        st.session_state.choice_made = ""
+if st.session_state.choice_made:
+    st.success(st.session_state.choice_made)
 
 # Create a placeholder to update "No" button dynamically
 no_placeholder = st.empty()
